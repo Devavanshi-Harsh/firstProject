@@ -1,53 +1,27 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
+import {Text, View, StyleSheet, FlatList} from 'react-native';
 
 const App = () => {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [display, setDisplay] = useState(false);
-  function resetHandler() {
-    setName('');
-    setPassword('');
-    setEmail('');
-    setDisplay(false);
-  }
+  const users = [
+    {id: 1, name: 'Harsh'},
+    {id: 2, name: 'Babloo Yadav'},
+    {id: 3, name: 'Suhail Khan'},
+  ];
   return (
     <View>
-      <TextInput
-        style={internalStyle.textInput}
-        placeholder="Enter your name"
-        value={name}
-        onChangeText={e => setName(e)}
+      <FlatList
+        data={users}
+        renderItem={({item}) => (
+          <Text style={internalStyle.listItems}>{item.name}</Text>
+        )}
+        keyExtractor={item => item.id}
       />
-      <TextInput
-        style={internalStyle.textInput}
-        placeholder="Enter password"
-        secureTextEntry={true}
-        value={password}
-        onChangeText={e => setPassword(e)}
-      />
-      <TextInput
-        style={internalStyle.textInput}
-        placeholder="Enter your email address"
-        value={email}
-        onChangeText={e => setEmail(e)}
-      />
-      <Button color={'green'} title="Print" onPress={() => setDisplay(true)} />
-      <Button color={'red'} title="reset" onPress={resetHandler} />
-      {display && (
-        <View>
-          <Text>Name : {name}</Text>
-          <Text>Password : {password}</Text>
-          <Text>Email Address : {email}</Text>
-        </View>
-      )}
     </View>
   );
 };
 export default App;
 const internalStyle = StyleSheet.create({
-  textInput: {
+  listItems: {
     color: 'blue',
     borderWidth: 2,
     borderColor: 'blue',
