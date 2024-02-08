@@ -1,20 +1,19 @@
 import React, {useState} from 'react';
 import {Button, Text, View} from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
-  var data = 100;
   const [name, setName] = useState("Harsh Devavanshi");
-  function clickHandler1() {
-    data += 100;
-    setName(name==="Harsh Devavanshi"?"Seema Yadav":"Harsh Devavanshi")
-    console.warn(data);
-  }
-
   return (
     <View>
-      <Text>{data} and {name}</Text>
-      <Button title="on Press 1" color={'blue'} onPress={clickHandler1} />
+      <User name = "Harsh Devavanshi" />
     </View>
   );
 };
 export default App;
+
+const User= (props)=>{
+  return <View >
+    <Text style={{color:"blue", fontSize:30}}>My name is {props.name}</Text>
+  </View>
+}
