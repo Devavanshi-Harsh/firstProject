@@ -1,29 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Text, View} from 'react-native';
 
 const App = () => {
   var data = 100;
+  const [name, setName] = useState("Harsh Devavanshi");
   function clickHandler1() {
     data += 100;
-    console.warn(data);
-  }
-  function clickHandler2() {
-    data += 100;
+    setName(name==="Harsh Devavanshi"?"Seema Yadav":"Harsh Devavanshi")
     console.warn(data);
   }
 
   return (
     <View>
-      <Text>data</Text>
-      <Button title="on Press 1" color={'red'} onPress={clickHandler1} />
-      <Button
-        title="on Press 2"
-        color={'green'}
-        onPress={() => clickHandler2()}
-      />
-      <Button title="on Press 3" color={'blue'} />
-      <Button title="on Press 4" color={'yellow'} />
-      <Button title="on Press 5" color={'orange'} />
+      <Text>{data} and {name}</Text>
+      <Button title="on Press 1" color={'blue'} onPress={clickHandler1} />
     </View>
   );
 };
