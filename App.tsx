@@ -1,41 +1,30 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import College from './components/College';
-type user = {
-  name: String;
-  age: number;
-  college: String;
-  collegeArea: String;
-};
+import {Button, Text, View} from 'react-native';
 
-function App(): React.JSX.Element {
+const App = () => {
+  var data = 100;
+  function clickHandler1() {
+    data += 100;
+    console.warn(data);
+  }
+  function clickHandler2() {
+    data += 100;
+    console.warn(data);
+  }
+
   return (
     <View>
-      <Text style={{color: 'red', fontSize: 33}}>Hello! World</Text>
-      <User
-        name="Harsh Devavanshi"
-        age={26}
-        college="Delhi University"
-        collegeArea="Delhi"
+      <Text>data</Text>
+      <Button title="on Press 1" color={'red'} onPress={clickHandler1} />
+      <Button
+        title="on Press 2"
+        color={'green'}
+        onPress={() => clickHandler2()}
       />
-      <User
-        name="Seema Yadav"
-        age={25}
-        college="Allahabad University"
-        collegeArea="Allahabad"
-      />
+      <Button title="on Press 3" color={'blue'} />
+      <Button title="on Press 4" color={'yellow'} />
+      <Button title="on Press 5" color={'orange'} />
     </View>
   );
-}
+};
 export default App;
-
-const User = (props: user) => {
-  return (
-    <View>
-      <Text style={{fontSize: 30}}>
-        Name: {props.name}, Age: {props.age}, His college is{' '}
-        <College college={props.college} collegeArea={props.collegeArea} />
-      </Text>
-    </View>
-  );
-};
