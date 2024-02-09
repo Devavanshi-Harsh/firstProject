@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, FlatList} from 'react-native';
+import {Text, View, StyleSheet, ScrollView} from 'react-native';
 
 const App = () => {
   const users = [
@@ -18,13 +18,11 @@ const App = () => {
   ];
   return (
     <View>
-      <FlatList
-        data={users}
-        renderItem={({item}) => (
+      <ScrollView style={{marginBottom: 10, marginTop: 10}}>
+        {users.map(item => (
           <Text style={internalStyle.listItems}>{item.name}</Text>
-        )}
-        keyExtractor={item => item.id}
-      />
+        ))}
+      </ScrollView>
     </View>
   );
 };
