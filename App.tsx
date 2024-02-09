@@ -17,24 +17,35 @@ const App = () => {
     {id: 13, name: 'Sana Begum'},
   ];
   return (
-    <View>
-      <ScrollView style={{marginBottom: 10, marginTop: 10}}>
-        {users.map(item => (
-          <Text style={internalStyle.listItems}>{item.name}</Text>
-        ))}
-      </ScrollView>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginBottom: 10,
+        marginTop: 10,
+      }}>
+      {users.map(item => (
+        <Text key={item.id} style={internalStyle.listItems}>
+          {item.name}
+        </Text>
+      ))}
     </View>
   );
 };
 export default App;
 const internalStyle = StyleSheet.create({
   listItems: {
-    color: 'blue',
+    color: 'white',
+    backgroundColor: 'blue',
+    width: 120,
+    height: 120,
     borderWidth: 2,
     borderColor: 'blue',
     padding: 15,
-    fontSize: 20,
     margin: 6,
     borderRadius: 5,
+    fontSize: 20,
+    fontWeight: '500',
   },
 });
