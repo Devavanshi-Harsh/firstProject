@@ -1,51 +1,28 @@
 import React, {useState} from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
+import UserData from './components/UserData';
 
 const App = () => {
   const users = [
-    {id: 1, name: 'Harsh'},
-    {id: 2, name: 'Babloo Yadav'},
-    {id: 3, name: 'Suhail Khan'},
-    {id: 4, name: 'Sahil Khan'},
-    {id: 5, name: 'Abbas Khan'},
-    {id: 6, name: 'Rehan Khan'},
-    {id: 7, name: 'Sunaina Afridee'},
-    {id: 8, name: 'Amal Kurma'},
-    {id: 10, name: 'Nawab Khan'},
-    {id: 11, name: 'Sameera Alam'},
-    {id: 12, name: 'Khusboo Parveen'},
-    {id: 13, name: 'Sana Begum'},
+    {id: 1, name: 'Harsh', email: 'h@gmail.com'},
+    {id: 2, name: 'Babloo Yadav', email: 'h@gmail.com'},
+    {id: 3, name: 'Suhail Khan', email: 's@gmail.com'},
+    {id: 4, name: 'Sahil Khan', email: 'sa@gmail.com'},
+    {id: 5, name: 'Abbas Khan', email: 'abb@gmail.com'},
+    {id: 6, name: 'Rehan Khan', email: 're@gmail.com'},
+    {id: 7, name: 'Sunaina Afridee', email: 'sun@gmail.com'},
+    {id: 8, name: 'Amal Kurma', email: 'amal@gmail.com'},
+    {id: 10, name: 'Nawab Khan', email: 'nawa@gmail.com'},
+    {id: 11, name: 'Sameera Alam', email: 'sameera@gmail.com'},
+    {id: 12, name: 'Khusboo Parveen', email: 'khus@gmail.com'},
+    {id: 13, name: 'Sana Begum', email: 'sana@gmail.com'},
   ];
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginBottom: 10,
-        marginTop: 10,
-      }}>
+    <View>
       {users.map(item => (
-        <Text key={item.id} style={internalStyle.listItems}>
-          {item.name}
-        </Text>
+        <UserData data={item} />
       ))}
     </View>
   );
 };
 export default App;
-const internalStyle = StyleSheet.create({
-  listItems: {
-    color: 'white',
-    backgroundColor: 'blue',
-    width: 120,
-    height: 120,
-    borderWidth: 2,
-    borderColor: 'blue',
-    padding: 15,
-    margin: 6,
-    borderRadius: 5,
-    fontSize: 20,
-    fontWeight: '500',
-  },
-});
