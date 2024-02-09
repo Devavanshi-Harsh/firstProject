@@ -1,28 +1,44 @@
-import React, {useState} from 'react';
-import {Text, View, StyleSheet, ScrollView} from 'react-native';
-import UserData from './components/UserData';
+import React from 'react';
+import {Text, View, StyleSheet, SectionList} from 'react-native';
 
 const App = () => {
   const users = [
-    {id: 1, name: 'Harsh', email: 'h@gmail.com'},
-    {id: 2, name: 'Babloo Yadav', email: 'h@gmail.com'},
-    {id: 3, name: 'Suhail Khan', email: 's@gmail.com'},
-    {id: 4, name: 'Sahil Khan', email: 'sa@gmail.com'},
-    {id: 5, name: 'Abbas Khan', email: 'abb@gmail.com'},
-    {id: 6, name: 'Rehan Khan', email: 're@gmail.com'},
-    {id: 7, name: 'Sunaina Afridee', email: 'sun@gmail.com'},
-    {id: 8, name: 'Amal Kurma', email: 'amal@gmail.com'},
-    {id: 10, name: 'Nawab Khan', email: 'nawa@gmail.com'},
-    {id: 11, name: 'Sameera Alam', email: 'sameera@gmail.com'},
-    {id: 12, name: 'Khusboo Parveen', email: 'khus@gmail.com'},
-    {id: 13, name: 'Sana Begum', email: 'sana@gmail.com'},
+    {
+      name: 'Harsh',
+      data: ['Web Development', 'Data Structures', 'Networking'],
+    },
+    {
+      name: 'Babloo Yadav',
+      data: ['Database Management', 'Software Engineering', 'Cybersecurity'],
+    },
   ];
+
   return (
-    <View>
-      {users.map(item => (
-        <UserData data={item} />
-      ))}
+    <View style={styles.container}>
+      <SectionList
+        sections={users}
+        renderItem={({item}) => <Text>{item}</Text>}
+        renderSectionHeader={({section: {name}}) => (
+          <Text style={styles.sectionHeader}>{name}</Text>
+        )}
+        keyExtractor={(item, index) => index}
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22,
+    backgroundColor: '#fff',
+  },
+  sectionHeader: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    backgroundColor: '#ccc',
+    padding: 10,
+  },
+});
+
 export default App;
