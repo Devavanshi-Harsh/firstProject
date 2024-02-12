@@ -1,16 +1,15 @@
-import {Component} from 'react';
-import {Text, View} from 'react-native';
-import User from './components/User';
-import Student from './components/Student';
+import React, { useEffect, useState } from 'react'
+import { Button, Text, View } from 'react-native';
 
-class App extends Component {
-  render() {
-    return (
-      <View>
-        <Text>This is App Class Component</Text>
-        <Student name = "Rahul" />
-      </View>
-    );
-  }
+export default App =()=> {
+  const [count, setCount] = useState(0);
+  useEffect(()=>{
+    console.warn(count);
+  }, [])
+  return (
+    <View>
+      <Text>UseEffect Mounting Phase count: {count} </Text>
+      <Button color={"green"} onPress={()=>setCount(count+2)} title='Add 2'/>
+    </View>
+  )
 }
-export default App;
