@@ -1,40 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
-export default App = ()=> {
+export default App = () => {
   const [display, setDisplay] = useState(true);
   return (
-    <View>
-      <Button color={"green"} onPress={()=>setDisplay(!display)} title={display?"Hide Data": "Show Data"}/>
-      {
-        display && <User/>
-      }
-      {
-        display ? <User/> : null
-      }
-    </View>
-  )
-}
-const User = () => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const timerData = setInterval(() => {
-      setCount(count => count + 2);
-    }, 2000);
-
-    // Clear the interval when the component unmounts
-    return () => {
-      clearInterval(timerData);
-      console.warn("Component Unmounted Finally");
-    };
-  }, []); // Empty dependency array ensures this effect runs only once when the component mounts
-
-  return (
-    <View>
-      <Text style={{ fontSize: 20, color: "orange" }}>
-        This is User Component Count {count}
-      </Text>
+    <View style={style.boxes}>
+      <View style={style.box1}>
+        <Text style={{backgroundColor: 'orange', margin: 10, flex: 1}}></Text>
+        <Text style={{backgroundColor: 'grey', margin: 10, flex: 1}}></Text>
+        <Text style={{backgroundColor: 'skyblue', margin: 10, flex: 1}}></Text>
+      </View>
+      <View style={style.box2}>
+        <Text>Box2</Text>
+      </View>
+      <View style={style.box3}>
+        <Text>Box3</Text>
+      </View>
+      <View style={style.box4}>
+        <Text>Box4</Text>
+      </View>
     </View>
   );
 };
+const style = StyleSheet.create({
+  boxes: {
+    flex: 1,
+    backgroundColor: 'grey',
+  },
+  box1: {
+    flex: 2,
+    backgroundColor: 'red',
+    flexDirection: 'row',
+  },
+  box2: {
+    flex: 1,
+    backgroundColor: 'green',
+  },
+  box3: {
+    flex: 1,
+    backgroundColor: 'yellow',
+  },
+  box4: {
+    flex: 1,
+    backgroundColor: 'blue',
+  },
+});
