@@ -1,22 +1,18 @@
-import React, {useState} from 'react';
-import {Text, Button, Modal, StyleSheet, View} from 'react-native';
+import React from 'react';
+import {Text, View, Pressable} from 'react-native';
 import {style} from './style';
 
 export default App = () => {
-  const [check, setCheck] = useState(true);
   return (
     <View style={style.main}>
-      <Modal transparent={true} visible={check} animationType="fade">
-        <View style={style.modalContainer}>
-          <View style={style.textContainer}>
-            <Text style={style.modalText}>This is the data to show</Text>
-            <Button title="close modal" onPress={() => setCheck(false)} />
-          </View>
-        </View>
-      </Modal>
-      <View>
-        <Button title="Show Modal" onPress={() => setCheck(true)} />
-      </View>
+      <Pressable
+        style={style.pressableContainer}
+        onPress={() => console.warn('Normal Press')}
+        onLongPress={() => console.warn('Long Press')}
+        onPressIn={() => console.warn('Press In')}
+        onPressOut={() => console.warn('Press Out')}>
+        <Text style={style.pressableText}>Pressable Text</Text>
+      </Pressable>
     </View>
   );
 };
