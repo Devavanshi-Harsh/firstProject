@@ -10,6 +10,7 @@ export default App = () => {
       <Text style={style.platformText}>
         This font will be orange if IOS device otherwise Red for Android Device
       </Text>
+      <Text>{JSON.stringify(Platform)}</Text>
     </View>
   );
 };
