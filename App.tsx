@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {FlatList, SectionList, Text, View} from 'react-native';
 export default App = () => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState([]);
 
   const fetchAPIData = async () => {
-    const url = 'https://jsonplaceholder.typicode.com/posts/1';
+    const url = 'https://jsonplaceholder.typicode.com/posts';
     let result = await fetch(url);
     result = await result.json();
     setData(result);
@@ -17,14 +17,18 @@ export default App = () => {
   return (
     <View>
       <Text>API Call</Text>
-      {data ? (
-        <View>
-          <Text style={{fontSize: 20}}>User ID: {data.userId}</Text>
-          <Text style={{fontSize: 20}}>ID: {data.id}</Text>
-          <Text style={{fontSize: 20}}>Title: {data.title}</Text>
-          <Text style={{fontSize: 20}}>Body : {data.body}</Text>
-        </View>
-      ) : null}
+      {data
+        ? data.map((item, index) => (
+            <View key={index}>
+              <Text style={{fontSize: 20, backgroundColor: 'grey'}}>
+                ID: {item.id}
+              </Text>
+              <Text style={{fontSize: 10}}>User ID: {item.userId}</Text>
+              <Text style={{fontSize: 10}}>Title: {item.title}</Text>
+              <Text style={{fontSize: 10}}>Body : {item.body}</Text>
+            </View>
+          ))
+        : null}
     </View>
   );
 };
