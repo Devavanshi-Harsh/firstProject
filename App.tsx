@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {FlatList, SectionList, Text, View} from 'react-native';
+import {FlatList, ScrollView, SectionList, Text, View} from 'react-native';
 export default App = () => {
   const [data, setData] = useState([]);
 
@@ -15,7 +15,7 @@ export default App = () => {
     fetchAPIData();
   }, []);
   return (
-    <View>
+    <ScrollView>
       <Text>API Call</Text>
       {data
         ? data.map((item, index) => (
@@ -29,6 +29,6 @@ export default App = () => {
             </View>
           ))
         : null}
-    </View>
+    </ScrollView>
   );
 };
