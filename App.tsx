@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './components/Home';
 import Cart from './components/Cart';
 import Login from './components/Login';
+import style from './components/Style';
 const Stack = createNativeStackNavigator();
 export default App = () => {
   function clickHandler(i: string) {
@@ -34,15 +35,3 @@ export default App = () => {
     </NavigationContainer>
   );
 };
-const style = StyleSheet.create({
-  box: {
-    flex: 1,
-    backgroundColor: 'rgba(40,40,40,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 20,
-    marginBottom: 10,
-  },
-});
