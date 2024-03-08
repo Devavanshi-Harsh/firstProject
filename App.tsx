@@ -1,8 +1,10 @@
 import React from 'react';
-import {Button, Pressable, Text, View} from 'react-native';
+import {Button, Pressable, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import style from './style';
+import Home from './components/Home';
+import Cart from './components/Cart';
+import Login from './components/Login';
 const Stack = createNativeStackNavigator();
 export default App = () => {
   function clickHandler(i: string) {
@@ -32,49 +34,15 @@ export default App = () => {
     </NavigationContainer>
   );
 };
-const Cart = props => {
-  return (
-    <View>
-      <Pressable
-        style={{backgroundColor: 'grey', borderRadius: 5}}
-        onPress={() => {
-          props.clickHandler('Short Press');
-        }}
-        onLongPress={() => {
-          props.clickHandler('Long Press');
-        }}
-        onPressIn={() => {
-          props.clickHandler('Press in');
-        }}
-        onPressOut={() => {
-          props.clickHandler('Press out');
-        }}>
-        <Text style={{color: 'white', fontSize: 20, padding: 5}}>
-          Another Component
-        </Text>
-      </Pressable>
-    </View>
-  );
-};
-const Home = props => {
-  return (
-    <View style={style.box}>
-      <Text style={style.text}>This is Home Component</Text>
-      <Button
-        title="Go to Login"
-        onPress={() => props.navigation.navigate('Log In')}
-      />
-    </View>
-  );
-};
-const Login = props => {
-  return (
-    <View style={style.box}>
-      <Text style={style.text}>This is Login Component</Text>
-      <Button
-        title="Go to home"
-        onPress={() => props.navigation.navigate('Home')}
-      />
-    </View>
-  );
-};
+const style = StyleSheet.create({
+  box: {
+    flex: 1,
+    backgroundColor: 'rgba(40,40,40,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 20,
+    marginBottom: 10,
+  },
+});
