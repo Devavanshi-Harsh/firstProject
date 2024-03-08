@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
+
 export default App = () => {
   const [data, setData] = useState([]);
 
@@ -13,24 +14,27 @@ export default App = () => {
   useEffect(() => {
     fetchAPIData();
   }, []);
+
   return (
-    <ScrollView>
-      <Text>API Call</Text>
-      {data.length == 0 && (
-        <Text style={{textAlign: 'center', fontSize: 40}}>Loading...</Text>
+    <FlatList
+      data={data}
+      renderItem={({item, index}) => (
+        <View
+          key={index}
+          style={{borderWidth: 1, borderRadius: 4, borderColor: 'red'}}>
+          <Text style={styles.text}>ID: {item.id}</Text>
+          <Text style={styles.text}>User ID: {item.userId}</Text>
+          <Text style={styles.text}>Title: {item.title}</Text>
+          <Text style={styles.text}>Body: {item.body}</Text>
+        </View>
       )}
-      {data
-        ? data.map((item, index) => (
-            <View key={index}>
-              <Text style={{fontSize: 20, backgroundColor: 'grey'}}>
-                ID: {item.id}
-              </Text>
-              <Text style={{fontSize: 10}}>User ID: {item.userId}</Text>
-              <Text style={{fontSize: 10}}>Title: {item.title}</Text>
-              <Text style={{fontSize: 10}}>Body : {item.body}</Text>
-            </View>
-          ))
-        : null}
-    </ScrollView>
+    />
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 10,
+    backgroundColor: 'skyblue',
+  },
+});
