@@ -11,6 +11,18 @@
       "name": "Seema",
       "age": 26,
       "degree": "elec"
+    },
+    {
+      "id": "c9c6",
+      "name": "Varsha",
+      "age": 29,
+      "degree": "M.Sc."
+    },
+    {
+      "id": "eb3e",
+      "name": "Pravallika",
+      "age": 11,
+      "degree": "12th"
     }
   ]
 }

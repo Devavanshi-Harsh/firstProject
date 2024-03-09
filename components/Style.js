@@ -1,14 +1,19 @@
 import {StyleSheet} from 'react-native';
 
 export default style = StyleSheet.create({
-  box: {
+  container: {
+    backgroundColor: 'lightgrey',
     flex: 1,
-    backgroundColor: 'rgba(40,40,40,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
-  text: {
-    fontSize: 20,
-    marginBottom: 10,
+  box: {
+    backgroundColor: 'orange',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    margin: 2,
+  },
+  header: {
+    flex: 1,
+    backgroundColor: 'lightgreen',
+    borderRadius: 2,
   },
 });
