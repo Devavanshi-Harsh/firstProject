@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
 import style from './components/Style';
 type User = {id: number; name: string; age: number; degree: string};
 export default function App() {
@@ -12,7 +12,14 @@ export default function App() {
     const data = await response.json();
     setUsers(data);
   };
-
+  async function deleteData(id) {
+    const url = `http://192.168.1.5:3000/users/${id}`;
+    const response = await fetch(url, {
+      method: 'delete',
+    });
+    if (response.ok) fetchData();
+    else console.warn('Unable to delete data...');
+  }
   return (
     <View style={style.container}>
       <View style={style.box}>
@@ -34,7 +41,11 @@ export default function App() {
               <Text>{item.degree}</Text>
             </View>
             <View style={{flex: 1}}>
-              <Button title="Delete" color="red" />
+              <Button
+                title="Delete"
+                color="red"
+                onPress={() => deleteData(item.id)}
+              />
             </View>
             <View style={{flex: 1}}>
               <Button title="Update" />

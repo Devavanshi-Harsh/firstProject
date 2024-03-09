@@ -13,14 +13,20 @@
       "degree": "elec"
     },
     {
-      "id": "c9c6",
-      "name": "Varsha",
-      "age": 29,
-      "degree": "M.Sc."
+      "id": "25e0",
+      "name": "Pravallika",
+      "age": 11,
+      "degree": "12th"
     },
     {
-      "id": "eb3e",
-      "name": "Pravallika",
+      "id": "bf38",
+      "name": "Rekshita",
+      "age": 11,
+      "degree": "12th"
+    },
+    {
+      "id": "5dce",
+      "name": "Reshma",
       "age": 11,
       "degree": "12th"
     }
