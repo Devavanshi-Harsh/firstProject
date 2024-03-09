@@ -1,24 +1,16 @@
 {
   "users": [
     {
+      "id": "0379",
       "name": "Harsh",
-      "age": 27,
-      "degree": "B.Sc."
+      "age": 26,
+      "degree": "elec"
     },
     {
-      "name": "Alice",
-      "age": 35,
-      "degree": "Ph.D."
-    },
-    {
-      "name": "Bob",
-      "age": 22,
-      "degree": "M.Sc."
-    },
-    {
-      "name": "Emily",
-      "age": 29,
-      "degree": "B.A."
+      "id": "702f",
+      "name": "Seema",
+      "age": 26,
+      "degree": "elec"
     }
   ]
 }
