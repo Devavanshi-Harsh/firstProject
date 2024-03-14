@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Modal, Text, View} from 'react-native';
 import style from './components/Style';
+import UpdateUserScreen from './components/UpdateUserScreen';
 
 type User = {id: number; name: string; age: number; degree: string};
 
 export default function App() {
   const [users, setUsers] = useState<User[]>([]);
+  const [showModal, setShowModal] = useState(false);
+  const [updateUserData, setUpdateUserData] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -25,7 +28,10 @@ export default function App() {
     if (response.ok) fetchData();
     else console.warn('Unable to delete data...');
   }
-
+  const callModal = data => {
+    setShowModal(true);
+    setUpdateUserData(data);
+  };
   return (
     <View style={style.container}>
       <View style={style.box}>
@@ -54,10 +60,16 @@ export default function App() {
               />
             </View>
             <View style={{flex: 1}}>
-              <Button title="Update" />
+              <Button title="Update" onPress={() => callModal(item)} />
             </View>
           </View>
         ))}
+      {showModal && (
+        <UpdateUserScreen
+          setShowModal={setShowModal}
+          updateUserData={updateUserData}
+        />
+      )}
     </View>
   );
 }

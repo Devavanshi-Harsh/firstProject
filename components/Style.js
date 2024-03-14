@@ -16,4 +16,17 @@ export default style = StyleSheet.create({
     backgroundColor: 'lightgreen',
     borderRadius: 2,
   },
+  modalcontainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  itemscontainer: {
+    backgroundColor: 'white',
+    padding: 40,
+    borderRadius: 10,
+    shadowColor: 'red',
+    elevation: 5,
+    shadowOpacity: 0.5,
+  },
 });
