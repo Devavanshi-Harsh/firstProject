@@ -1,18 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Text, View} from 'react-native';
 import style from './components/Style';
+
 type User = {id: number; name: string; age: number; degree: string};
+
 export default function App() {
   const [users, setUsers] = useState<User[]>([]);
+
   useEffect(() => {
     fetchData();
   }, []);
+
   const fetchData = async () => {
     const response = await fetch('http://192.168.1.5:3000/users');
     const data = await response.json();
     setUsers(data);
   };
-  async function deleteData(id) {
+
+  async function deleteData(id: number) {
     const url = `http://192.168.1.5:3000/users/${id}`;
     const response = await fetch(url, {
       method: 'delete',
@@ -20,6 +25,7 @@ export default function App() {
     if (response.ok) fetchData();
     else console.warn('Unable to delete data...');
   }
+
   return (
     <View style={style.container}>
       <View style={style.box}>
@@ -28,7 +34,7 @@ export default function App() {
         <Text style={style.header}>Degree</Text>
         <Text style={{...style.header, flex: 2}}>Operation</Text>
       </View>
-      {users.length &&
+      {users.length > 0 &&
         users.map((item, index) => (
           <View style={style.box} key={index}>
             <View style={{flex: 1}}>

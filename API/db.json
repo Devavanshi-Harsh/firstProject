@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "id": "0379",
-      "name": "Harsh",
-      "age": 26,
-      "degree": "elec"
-    },
-    {
       "id": "702f",
       "name": "Seema",
       "age": 26,
@@ -21,12 +15,6 @@
     {
       "id": "bf38",
       "name": "Rekshita",
-      "age": 11,
-      "degree": "12th"
-    },
-    {
-      "id": "5dce",
-      "name": "Reshma",
       "age": 11,
       "degree": "12th"
     }
